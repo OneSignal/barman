@@ -61,6 +61,8 @@ def build_conninfo(config):
         conn_parts.append("port=%s" % quote_conninfo(config.port))
     if config.user:
         conn_parts.append("user=%s" % quote_conninfo(config.user))
+    if config.database:
+        conn_parts.append("dbname=%s" % quote_conninfo(config.database))
     return ' '.join(conn_parts)
 
 
@@ -221,6 +223,10 @@ def parse_arguments(args=None):
     parser.add_argument(
         '-U', '--user',
         help='user name for PostgreSQL connection (default: libpq settings)',
+    )
+    parser.add_argument(
+        '-d', '--database',
+        help='database for PostgreSQL connection (default: libpq settings)',
     )
     parser.add_argument(
         '--immediate-checkpoint',
