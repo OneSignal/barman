@@ -98,7 +98,7 @@ setup(
     long_description="\n".join(__doc__.split("\n")[2:]),
     install_requires=install_requires,
     extras_require={
-        'cloud': ['boto3'],
+        'cloud': ['boto3>=1.4.0'],
         'completion': ['argcomplete'],
     },
     platforms=['Linux', 'Mac OS X'],
